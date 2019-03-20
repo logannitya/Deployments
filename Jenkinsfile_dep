@@ -10,7 +10,7 @@ pipeline {
 
                     // Variables for input
                     def inputConfig
-                    def inputTest
+                    //def inputTest
 
                     // Get the input
                     def userInput = input(
@@ -19,7 +19,7 @@ pipeline {
 
                                     string(defaultValue: 'None',
                                             description: 'Path of config file',
-                                            name: 'Config')
+                                            name: 'Config'),
                                     
                             ])
 
