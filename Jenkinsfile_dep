@@ -18,20 +18,20 @@ pipeline {
                             parameters: [
 
                                     string(defaultValue: 'None',
-                                            description: 'Path of config file',
-                                            name: 'Config'),
-                                    string(defaultValue: 'None',
-                                            description: 'Test Info file',
-                                            name: 'Test'),
+                                            description: 'Object Names to be deployed',
+                                            name: 'Object_Names'),
+                                    
                             ])
 
                     // Save to variables. Default to empty string if not found.
                     inputConfig = userInput.Config?:''
-                    inputTest = userInput.Test?:''
-
+                    //inputTest = userInput.Test?:''
+					
+					inputConfig = inputConfig.split()
+                    inputTest = inputConfig.toList()
                     // Echo to console
-                    echo("IQA Sheet Path: ${inputConfig}")
-                    echo("Test Info file path: ${inputTest}")
+                    echo("IQA Sheet Path: ${inputTest}")
+                    //echo("Test Info file path: ${inputTest}")
 
                     // Write to file
                    // writeFile file: "inputData.txt", text: "Config=${inputConfig}\r\nTest=${inputTest}"
