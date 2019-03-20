@@ -32,7 +32,12 @@ pipeline {
                     // Echo to console
                     echo("IQA Sheet Path: ${inputConfig}")
                     echo("Test Info file path: ${inputTest}")
-
+					
+					println inputConfig.getClass()
+					def test = inputConfig.split()
+					def new_list = test.toList()
+                    println new_list
+					
                     // Write to file
                     //writeFile file: "inputData.txt", text: "Config=${inputConfig}\r\nTest=${inputTest}"
 
