@@ -19,12 +19,12 @@ pipeline {
 
                                     string(defaultValue: 'None',
                                             description: 'Object Names to be deployed',
-                                            name: 'Object_Names'),
+                                            name: 'Config'),
                                     
                             ])
 
                     // Save to variables. Default to empty string if not found.
-                    inputConfig = userInput.Object_Names?:''
+                    inputConfig = userInput.Config?:''
                     //inputTest = userInput.Test?:''
 					
 					inputConfig = inputConfig.split()
