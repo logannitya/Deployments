@@ -24,12 +24,13 @@ pipeline {
                             ])
 
                     // Save to variables. Default to empty string if not found.
-                    inputConfig = userInput.Config?:''
+                    inputConfig = userInput.Object_Names?:''
                     //inputTest = userInput.Test?:''
 					
 					inputConfig = inputConfig.split()
                     inputTest = inputConfig.toList()
-                    // Echo to console
+                    
+					// Echo to console
                     echo("IQA Sheet Path: ${inputTest}")
                     //echo("Test Info file path: ${inputTest}")
 
