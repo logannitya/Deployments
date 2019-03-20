@@ -8,26 +8,33 @@ pipeline {
             steps {
                 script {
 
-                   
-                    def inputobject
-                    
+                    // Variables for input
+                    def inputConfig
+                    def inputTest
 
                     // Get the input
-                    def userInput = input id: 'UserInput', message: 'Enter Objects:?', parameters: [string(defaultValue: 'None', description: 'object_names', name: 'object', trim: false)]
+                    def userInput = input(
+                            id: 'userInput', message: 'Enter path of test reports:?',
+                            parameters: [
 
-                    
-                    inputConfig = userInput.object?:''
-                   
+                                    string(defaultValue: 'None',
+                                            description: 'Path of config file',
+                                            name: 'Config'),
+                                    string(defaultValue: 'None',
+                                            description: 'Test Info file',
+                                            name: 'Test'),
+                            ])
+
+                    // Save to variables. Default to empty string if not found.
+                    inputConfig = userInput.Config?:''
+                    inputTest = userInput.Test?:''
 
                     // Echo to console
-                    echo("Object_name: ${inputobject}")
-                  
-					
-					println inputobject.getClass()
-					def test = inputobject.split()
-					def new_list = test.toList()
-                    println new_list
-					
+                    echo("IQA Sheet Path: ${inputConfig}")
+                    echo("Test Info file path: ${inputTest}")
+
+                    
+
                     
                 }
             }
