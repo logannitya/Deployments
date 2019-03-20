@@ -19,14 +19,14 @@ pipeline {
 
                                     string(defaultValue: 'None',
                                             description: 'Path of config file',
-                                            name: 'Config'),
+                                            name: 'object'),
                                     string(defaultValue: 'None',
                                             description: 'Test Info file',
                                             name: 'Test'),
                             ])
 
                     // Save to variables. Default to empty string if not found.
-                    inputConfig = userInput.Config?:''
+                    inputConfig = userInput.object?:''
                     inputTest = userInput.Test?:''
 
                     // Echo to console
