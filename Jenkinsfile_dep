@@ -8,31 +8,27 @@ pipeline {
             steps {
                 script {
 
-                    // Variables for input
-                    def inputConfig
-                    //def inputTest
+                   
+                    def inputobject
+                    
 
                     // Get the input
-                    def userInput = input id: 'UserInput', message: 'Enter Objects:?', parameters: [string(defaultValue: 'None', description: 'Path of config file', name: 'Config', trim: false)]
+                    def userInput = input id: 'UserInput', message: 'Enter Objects:?', parameters: [string(defaultValue: 'None', description: 'object_names', name: 'object', trim: false)]
 
-                    // Save to variables. Default to empty string if not found.
-                    inputConfig = userInput.Config?:''
-                   // inputTest = userInput.Test?:''
+                    
+                    inputConfig = userInput.object?:''
+                   
 
                     // Echo to console
-                    echo("IQA Sheet Path: ${inputConfig}")
-                    //echo("Test Info file path: ${inputTest}")
+                    echo("Object_name: ${inputobject}")
+                  
 					
-					println inputConfig.getClass()
-					def test = inputConfig.split()
+					println inputobject.getClass()
+					def test = inputobject.split()
 					def new_list = test.toList()
                     println new_list
 					
-                    // Write to file
-                    //writeFile file: "inputData.txt", text: "Config=${inputConfig}\r\nTest=${inputTest}"
-
-                    // Archive the file (or whatever you want to do with it)
-                   // archiveArtifacts 'inputData.txt'
+                    
                 }
             }
         }
